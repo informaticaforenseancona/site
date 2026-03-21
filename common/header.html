@@ -1,0 +1,41 @@
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+
+<header class="site-header">
+  <div class="container flex items-center justify-between py-5 gap-6">
+    <div class="flex items-center gap-4">
+        <a href="index.html" class="logo-frame" aria-label="Vai alla home">
+          <img src="assets/imgs/shared/logo.png" alt="Logo Informatica Forense Ancona">
+        </a>
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-gray-300">Consulenza forense</p>
+        <p class="text-2xl font-semibold">Informatica Forense Ancona</p>
+      </div>
+    </div>
+    <nav class="desktop-nav flex items-center gap-5 text-sm">
+      <a href="index.html">Home</a>
+      <a href="chi-sono.html">Chi sono</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="certificazioni.html">Certificazioni</a>
+      <a href="prezzi.html">Prezzi</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+    <button id="nav-toggle" aria-label="Apri menu">☰</button>
+  </div>
+</header>
+
+<div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <button id="mobileMenuClose" aria-label="Chiudi menu" class="text-white text-2xl self-end">✕</button>
+  <a href="index.html">Home</a>
+  <a href="chi-sono.html">Chi sono</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="certificazioni.html">Certificazioni</a>
+  <a href="prezzi.html">Prezzi</a>
+  <a href="contatti.html">Contatti</a>
+</div>

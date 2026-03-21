@@ -1,0 +1,255 @@
+:root {
+  --primary: #0b1f2b;
+  --accent: #f0c63a;
+  --muted: #d8e3ea;
+  --hero-image: url('imgs/index/hero-hands_typing_on_a_keyboard.png');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #101c2a, #04070d 55%);
+  color: white;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.site-header {
+  background: rgba(3, 7, 13, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.logo-frame {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  border-radius: 28px;
+  padding: 8px;
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo-frame::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 34px;
+  border: 1px solid rgba(240, 198, 58, 0.35);
+  opacity: 0;
+  animation: glow 4s ease-in-out infinite;
+}
+
+.logo-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+nav.desktop-nav a {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+}
+
+nav.desktop-nav a:hover {
+  color: white;
+}
+
+#nav-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 1.1rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 8, 15, 0.95);
+  display: none;
+  flex-direction: column;
+  padding: 3rem 1.5rem;
+  gap: 1.5rem;
+  font-size: 1.25rem;
+  z-index: 10;
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.25rem;
+}
+
+.mobile-menu button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.75rem;
+  padding: 0;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, var(--accent), #ffad24);
+  color: var(--primary);
+  padding: 0.7rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.hero {
+  background: linear-gradient(120deg, rgba(198, 129, 30, 0.1), rgba(5, 9, 18, 0.95)), var(--hero-image) center/cover;
+  position: relative;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+
+.page-chi-sono .hero {
+  background-position: center 18%;
+}
+
+.page-chi-sono .hero::before {
+  opacity: 0.6;
+  filter: brightness(95%) saturate(85%);
+}
+
+.page-chi-sono .hero::after {
+  opacity: 0.3;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(240, 198, 58, 0.35), transparent 55%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.75) 65%);
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1,
+.hero-content p,
+.hero-content .panel-card,
+.hero-content .pill {
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.panel-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.services-card {
+  background: rgba(14, 28, 45, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.services-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(240, 198, 58, 0.6);
+}
+
+.pricing-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pricing-card strong {
+  font-size: 2rem;
+}
+
+footer {
+  background: #01040b;
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.04);
+  }
+}
+
+@media (max-width: 900px) {
+  nav.desktop-nav {
+    display: none;
+  }
+
+  #nav-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
