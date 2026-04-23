@@ -23,7 +23,7 @@
         id = crypto.randomUUID();
       }
   
-    const url = "https://site-tracker-ruav.onrender.com/track" + id;
+    const url = "https://site-tracker-ruav.onrender.com/track?id=" + id;
 
     // metodo non bloccante
     if (navigator.sendBeacon) {
