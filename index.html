@@ -19,6 +19,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/scripts.js" defer></script>
+
+  <!-- raw visit counter -->
+  <script>
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+  
+    let id = params.get("ref");
+  
+    if (!id) {
+        id = crypto.randomUUID();
+      }
+  
+    const url = "https://site-tracker-ruav.onrender.com/track" + id;
+
+    // metodo non bloccante
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(url);
+    } else {
+      fetch(url, { method: "GET", keepalive: true }).catch(() => {});
+    }
+  })();
+  </script>
+
 </head>
 
 <body class="page-home" style="--hero-image: url('imgs/index/hero-hands_typing_on_a_keyboard.png');">
