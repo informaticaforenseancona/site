@@ -286,3 +286,24 @@ footer {
     padding: 0 1rem;
   }
 }
+
+@media (min-width: 1025px) {
+  /* Aumenta l'oscurità del gradiente principale per mascherare lo zoom */
+  .hero {
+    background: linear-gradient(
+      120deg, 
+      rgba(10, 6, 2, 0.4),   
+      rgba(3, 5, 10, 0.98)   
+    ), var(--hero-image) center/cover;
+  }
+
+  /* Scurisce gli overlay specifici della pagina "Chi Sono" */
+  .page-chi-sono .hero::before {
+    opacity: 0.90;                
+    filter: brightness(60%) saturate(70%); 
+  }
+  
+  .page-chi-sono .hero::after {
+    opacity: 0.65;                 
+  }
+}
