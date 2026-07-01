@@ -71,10 +71,8 @@ nav.desktop-nav a:hover {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
-  width: 40px;
-  height: 40px;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   display: none;
   align-items: center;
   justify-content: center;
@@ -89,7 +87,7 @@ nav.desktop-nav a:hover {
   padding: 3rem 1.5rem;
   gap: 1.5rem;
   font-size: 1.25rem;
-  z-index: 10;
+  z-index: 60;
 }
 
 .mobile-menu.show {
