@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /chi-sono.html
+
+Sitemap: https://informatica-forense-ancona.it/sitemap.xml

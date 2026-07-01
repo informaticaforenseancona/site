@@ -30,6 +30,35 @@ function setupNav() {
   });
 }
 
+function trackInteraction(eventName, link) {
+  if (typeof window.gtag !== 'function' || !link) {
+    return;
+  }
+
+  window.gtag('event', eventName, {
+    link_url: link.href,
+    link_text: link.textContent.trim()
+  });
+}
+
+function setupAnalyticsEvents() {
+  document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+    link.addEventListener('click', () => trackInteraction('contact_email_click', link));
+  });
+
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach((link) => {
+    link.addEventListener('click', () => trackInteraction('linkedin_click', link));
+  });
+
+  document.querySelectorAll('.cta-button').forEach((link) => {
+    link.addEventListener('click', () => trackInteraction('cta_click', link));
+  });
+
+  document.querySelectorAll('a[href$=".html"]').forEach((link) => {
+    link.addEventListener('click', () => trackInteraction('internal_navigation_click', link));
+  });
+}
+
 async function includeSharedPartial(name) {
   const slot = document.querySelector(`[data-include="${name}"]`);
   if (!slot) {
@@ -55,4 +84,5 @@ async function includeSharedPartial(name) {
 document.addEventListener('DOMContentLoaded', async () => {
   await Promise.all([includeSharedPartial('header'), includeSharedPartial('footer')]);
   setupNav();
+  setupAnalyticsEvents();
 });
