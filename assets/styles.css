@@ -2,7 +2,7 @@
   --primary: #0b1f2b;
   --accent: #f0c63a;
   --muted: #d8e3ea;
-  --hero-image: url('imgs/index/hero-hands_typing_on_a_keyboard.png');
+  --hero-image: url('imgs/index/hero-hands_typing_on_a_keyboard.webp');
 }
 
 * {
@@ -211,6 +211,88 @@ nav.desktop-nav a:hover {
 .page-contatti .hero .panel-card p:last-child {
   font-size: clamp(0.825rem, 2vw, 1rem);
   color: rgba(255, 255, 255, 0.75);
+}
+
+.page-404 {
+  background:
+    radial-gradient(circle at top, rgba(240, 198, 58, 0.15), transparent 35%),
+    linear-gradient(180deg, #dff0ff 0%, #f3f6fa 42%, #d8e4ef 100%);
+  color: #0b1f2b;
+  min-height: 100vh;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.page-404-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.page-404-content {
+  max-width: 980px;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+}
+
+.page-404-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(11, 31, 43, 0.08);
+  color: #123044;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.page-404 h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.75rem);
+  line-height: 0.95;
+  max-width: 12ch;
+  color: #091826;
+}
+
+.page-404-copy {
+  margin: 0;
+  max-width: 62ch;
+  color: #2a4356;
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+}
+
+.page-404-illustration {
+  width: min(100%, 920px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 24px 44px rgba(12, 29, 43, 0.18));
+}
+
+.page-404-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.25rem;
+  align-items: center;
+}
+
+.page-404-link {
+  color: #123044;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(18, 48, 68, 0.3);
+}
+
+.page-404-footnote {
+  margin: 0;
+  max-width: 56ch;
+  color: #4d6476;
+  font-size: 0.95rem;
 }
 
 @media (max-width: 640px) {
