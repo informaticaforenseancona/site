@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-369X9201DP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-369X9201DP');
+  </script>
+  <!-- End Google tag (gtag.js) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <title>Come capire se un'email è falsa o è stata contraffatta</title>
+  <meta name="description" content="Il testo non dimostra nulla: le informazioni utili stanno negli header e negli esiti dei controlli SPF, DKIM e DMARC. Perché uno screenshot non serve.">
+  <link rel="canonical" href="https://informatica-forense-ancona.it/email-falsa-o-contraffatta-come-verificare.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Come capire se un'email è falsa o è stata contraffatta">
+  <meta property="og:description" content="Header tecnici, SPF, DKIM e DMARC: cosa si guarda per stabilire se un'email è autentica.">
+  <meta property="og:url" content="https://informatica-forense-ancona.it/email-falsa-o-contraffatta-come-verificare.html">
+  <meta property="og:image" content="https://informatica-forense-ancona.it/assets/social-preview.png">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b1f2b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/scripts.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://informatica-forense-ancona.it/email-falsa-o-contraffatta-come-verificare.html#article",
+      "headline": "Come capire se un'email è falsa o è stata contraffatta",
+      "description": "Il testo non dimostra nulla: le informazioni utili stanno negli header e negli esiti dei controlli SPF, DKIM e DMARC. Perché uno screenshot non serve.",
+      "inLanguage": "it-IT",
+      "url": "https://informatica-forense-ancona.it/email-falsa-o-contraffatta-come-verificare.html",
+      "image": "https://informatica-forense-ancona.it/assets/social-preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://informatica-forense-ancona.it/#cristian-federiconi",
+        "name": "Cristian Federiconi",
+        "jobTitle": "Consulente Tecnico di Parte in informatica forense",
+        "sameAs": "https://www.linkedin.com/in/cristian-federiconi/",
+        "knowsAbout": [
+          "Informatica forense",
+          "Analisi di posta elettronica",
+          "Autenticazione dei messaggi",
+          "Prove digitali"
+        ]
+      },
+      "publisher": {
+        "@id": "https://informatica-forense-ancona.it/#business"
+      },
+      "mainEntityOfPage": "https://informatica-forense-ancona.it/email-falsa-o-contraffatta-come-verificare.html",
+      "about": [
+        "Posta elettronica",
+        "Phishing",
+        "Autenticità dei messaggi"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://informatica-forense-ancona.it/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Domande frequenti",
+          "item": "https://informatica-forense-ancona.it/domande-frequenti.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Come capire se un'email è falsa"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Come si verifica se un'email è autentica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si analizzano gli header del messaggio, cioè le intestazioni tecniche che registrano il percorso reale seguito dall'email e l'esito dei controlli di autenticazione SPF, DKIM e DMARC. Questi controlli stabiliscono se il server che ha inviato il messaggio era autorizzato a farlo per quel dominio e se il contenuto è stato alterato durante il transito."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Perché uno screenshot dell'email non serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perché contiene solo ciò che il programma di posta mostra a schermo: mittente visualizzato, oggetto e testo. Gli header, che sono l'unica parte tecnicamente significativa, non compaiono. Serve il messaggio originale esportato dalla casella, in formato .eml o .msg."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Inoltrare l'email sospetta è sufficiente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, e spesso è controproducente. L'inoltro genera un nuovo messaggio con i propri header e in molti casi altera o rimuove quelli originali. Il messaggio va esportato dalla casella e trasmesso come allegato, oppure inoltrato con la funzione che allega il messaggio originale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Una PEC può essere falsificata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La posta elettronica certificata offre garanzie molto più solide della posta ordinaria su invio, consegna e integrità del messaggio, con ricevute firmate dal gestore. Restano possibili contestazioni su chi materialmente abbia utilizzato la casella, ma la falsificazione del percorso è di fatto un'altra questione rispetto a un'email comune."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+
+<body class="page-servizi" style="--hero-image: url('imgs/index/hero-hands_typing_on_a_keyboard.webp');">
+  <div data-include="header"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content space-y-8">
+        <nav aria-label="Percorso" class="text-sm text-white/60">
+          <a href="index.html" class="hover:text-white">Home</a>
+          <span class="mx-2">/</span>
+          <a href="domande-frequenti.html" class="hover:text-white">Domande frequenti</a>
+        </nav>
+        <div class="pill">
+          <span class="text-xs">Comunicazioni digitali</span>
+          <span class="text-white text-[0.9rem] font-semibold">Posta elettronica</span>
+        </div>
+        <div class="space-y-6">
+          <h1 class="text-4xl md:text-6xl font-black leading-tight max-w-4xl">
+            Come capire se un'email è falsa o è stata contraffatta
+          </h1>
+          <p class="text-lg md:text-xl text-white/80 max-w-3xl">
+            Il mittente che leggi nel messaggio è un'etichetta, e chiunque può scriverci quello che vuole. Le informazioni che contano davvero sono altrove, e uno screenshot non le contiene.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container space-y-8">
+        <div class="panel-card space-y-4 border border-yellow-400/60 bg-yellow-500/5">
+          <p class="text-xs uppercase tracking-[0.4em] text-yellow-300">Risposta breve</p>
+          <p class="text-white/90 text-lg">Il testo di un'email non dimostra niente, e nemmeno il nome del mittente che compare in cima: quel campo è un'etichetta compilabile a piacere, esattamente come il mittente scritto a mano sul retro di una busta.</p>
+          <p class="text-white/70">Le informazioni utili stanno negli <strong>header</strong>, le intestazioni tecniche che il programma di posta non mostra. Contengono il percorso reale del messaggio, i server che lo hanno trasportato, gli orari di ogni passaggio e soprattutto l'esito dei controlli di autenticazione <strong>SPF, DKIM e DMARC</strong>.</p>
+          <p class="text-white/70">Ne discende una conseguenza molto pratica: <strong>uno screenshot dell'email è inutile per questa verifica</strong>, e anche inoltrarla può bastare a rovinare tutto. Quello che serve è il messaggio originale esportato dalla casella, tipicamente in formato <em>.eml</em> o <em>.msg</em>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white/5">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Cosa sono gli header e perché contano</h2>
+        <div class="panel-card space-y-4">
+          <p class="text-xl font-semibold">La parte del messaggio che nessuno guarda mai</p>
+          <p class="text-white/70">Ogni email trasporta con sé un blocco di intestazioni tecniche che il programma di posta nasconde perché sarebbero illeggibili per l'utente. Lì dentro c'è la storia reale del messaggio: da quale server è partito, attraverso quali sistemi è transitato, in quale momento ogni passaggio è avvenuto, con quale indirizzo di ritorno e con quali esiti di verifica.</p>
+          <p class="text-white/70">La distinzione decisiva è fra il <strong>mittente visualizzato</strong> — quello che leggi, che chiunque può scrivere come vuole — e il <strong>mittente reale</strong>, cioè il server che ha effettivamente consegnato il messaggio. Nelle email fraudolente questi due valori quasi sempre non coincidono, e la discrepanza è visibile solo negli header.</p>
+          <p class="text-white/70">È per questo che il primo passo di ogni analisi è recuperare il messaggio originale. Senza header non c'è verifica: c'è solo la lettura di un testo che chiunque avrebbe potuto scrivere.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">I tre controlli di autenticazione</h2>
+        <p class="text-white/70 max-w-3xl">Sono meccanismi standard che i server di posta applicano automaticamente. I loro esiti restano scritti negli header e sono difficili da falsificare in modo coerente.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">SPF</h3>
+            <p class="text-white/70">Verifica che il server che ha inviato il messaggio sia fra quelli autorizzati a spedire per quel dominio.</p>
+            <p class="text-white/70">Un esito negativo su un'email che dichiara di provenire da un'azienda strutturata è un segnale molto forte.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">DKIM</h3>
+            <p class="text-white/70">Applica una firma crittografica al messaggio in partenza. Se il contenuto viene alterato lungo il percorso, la verifica fallisce.</p>
+            <p class="text-white/70">È l'elemento che permette di sostenere che il testo ricevuto è quello effettivamente spedito.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">DMARC</h3>
+            <p class="text-white/70">Definisce la politica del dominio quando SPF o DKIM falliscono, e richiede coerenza fra il mittente visualizzato e quello autenticato.</p>
+            <p class="text-white/70">È il controllo che rende difficile far apparire un messaggio come proveniente da un dominio altrui.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white/5">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">I segnali che ricorrono nelle email fraudolente</h2>
+        <p class="text-white/70 max-w-3xl">Alcuni sono visibili anche senza strumenti. Nessuno è decisivo da solo, ma insieme orientano parecchio.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Dominio quasi identico</h3>
+            <p class="text-white/70">Un carattere aggiunto, uno mancante, un'estensione diversa. La lettura distratta di un indirizzo è il punto debole su cui si regge quasi tutto il phishing.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Indirizzo di risposta diverso</h3>
+            <p class="text-white/70">Il messaggio sembra provenire da un contatto noto, ma la risposta è indirizzata altrove. È il meccanismo classico delle frodi sui pagamenti.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Urgenza e minaccia di conseguenze</h3>
+            <p class="text-white/70">Scadenze immediate, blocchi imminenti, richieste di riservatezza. Servono a impedire la verifica con un secondo canale.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Coordinate bancarie cambiate</h3>
+            <p class="text-white/70">La richiesta di aggiornare un IBAN su una fattura è lo schema più costoso in ambito aziendale. Va sempre verificata con una telefonata a un numero già noto.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Allegati o link inattesi</h3>
+            <p class="text-white/70">Documenti che si presentano come fatture o ricevute e chiedono di abilitare contenuti, oppure collegamenti verso pagine di accesso molto somiglianti a quelle originali.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Percorso incoerente negli header</h3>
+            <p class="text-white/70">Server di transito in paesi che non hanno relazione con il presunto mittente, o passaggi temporali impossibili. Emerge solo dall'analisi tecnica.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Quando la questione finisce in causa</h2>
+        <div class="panel-card space-y-4">
+          <p class="text-xl font-semibold">La contestazione tipica: «quell'email non l'ho mai mandata»</p>
+          <p class="text-white/70">Nelle controversie l'email compare in due ruoli opposti. A volte è la prova di un accordo, di un ordine, di una comunicazione ricevuta; altre volte è il messaggio fraudolento che ha causato il danno, e occorre stabilire da dove sia realmente arrivato.</p>
+          <p class="text-white/70">In entrambi i casi il ragionamento probatorio è lo stesso che vale per le chat: nel processo civile l'email rientra fra le riproduzioni informatiche dell'art. 2712 c.c. e fa piena prova <em>finché la controparte non ne disconosce la conformità</em>. Approfondisco questa dinamica nella pagina su <a href="screenshot-whatsapp-valore-legale.html" class="text-yellow-300 underline decoration-yellow-300/40">valore probatorio degli screenshot di WhatsApp</a>, e vale identica per la posta elettronica.</p>
+          <p class="text-white/70">Ciò che sposta l'ago è la disponibilità del messaggio originale con i suoi header, e possibilmente dei log del server di posta, che conservano registrazioni indipendenti dalla casella dell'utente. Quando questi elementi ci sono, la contestazione ha vita breve. Quando c'è solo uno screenshot, la contestazione è quasi gratuita.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white/5">
+      <div class="container space-y-8">
+        <div class="panel-card space-y-5 border border-red-400/40 bg-red-500/5">
+          <p class="text-xs uppercase tracking-[0.4em] text-red-300">Da evitare</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Se l'email dovrà essere verificata</h2>
+          <p class="text-white/70">Poche cose, ma nessuna recuperabile a posteriori.</p>
+          <ul class="list-disc list-inside space-y-3 text-white/70">
+            <li><strong>Non cancellarla</strong>, nemmeno dopo aver capito che è una truffa: dalla cartella cestino sparisce comunque da sola dopo un certo periodo.</li>
+            <li><strong>Conservala come messaggio, non come immagine.</strong> Uno screenshot contiene solo la parte che non serve; l'inoltro semplice altera o perde le intestazioni originali.</li>
+            <li><strong>Non cliccare sui link, nemmeno per capire.</strong> È il consiglio più banale che esista, ed è anche quello che viene ignorato più spesso.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container">
+        <div class="panel-card space-y-6">
+          <h2 class="text-2xl md:text-3xl font-semibold">Devi far verificare un'email?</h2>
+          <p class="text-white/70">Che si tratti di dimostrare l'autenticità di un messaggio o di ricostruire l'origine di una comunicazione fraudolenta, l'analisi parte sempre dal file originale. Nella valutazione preliminare vediamo cosa hai a disposizione e se è sufficiente per un accertamento utile.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="contatti.html" class="cta-button inline-flex items-center px-6 py-3 font-semibold rounded-full shadow-xl">Richiedi una valutazione preliminare</a>
+            <a href="analisi-whatsapp-email-foto.html" class="text-white/80 underline decoration-white/50">Come funziona l'analisi di email e comunicazioni</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white/5">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Domande correlate</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Come esporto il messaggio originale?</h3>
+            <p class="text-white/70">Quasi tutti i programmi di posta permettono di salvare un messaggio su disco come file, tipicamente con estensione .eml o .msg, oppure di visualizzarne l'origine e copiarla integralmente. Se non sai come procedere con il tuo client, chiedimelo: sono due passaggi.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">L'azienda mi contesta un'email che dice di avermi mandato</h3>
+            <p class="text-white/70">Si verifica sia la presenza del messaggio nei sistemi sia i log di consegna del server. Un'email che risulti spedita ma mai consegnata, o consegnata a un indirizzo diverso, cambia completamente il quadro.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Ho ricevuto una fattura con IBAN cambiato</h3>
+            <p class="text-white/70">È lo schema fraudolento più costoso per le aziende. Oltre all'analisi del messaggio va verificato se la casella di una delle parti sia stata compromessa: spesso il messaggio è autentico, ma è partito da una casella controllata da altri.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Si può risalire a chi ha mandato l'email?</h3>
+            <p class="text-white/70">L'analisi tecnica arriva fino ai server e agli indirizzi di rete coinvolti. L'identificazione della persona fisica richiede dati in possesso dei fornitori di servizi, ottenibili solo tramite l'autorità giudiziaria.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Quanto costa l'analisi?</h3>
+            <p class="text-white/70">L'analisi di email e comunicazioni digitali parte da 800 euro in base al volume del materiale. Le fasce sono nella <a href="prezzi.html" class="text-yellow-300 underline decoration-yellow-300/40">pagina dei prezzi</a>; la valutazione preliminare non ha costo.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Vale anche per la posta certificata?</h3>
+            <p class="text-white/70">La PEC ha garanzie proprie, con ricevute firmate dal gestore che documentano invio e consegna. L'analisi si concentra allora su altri profili, ad esempio su chi abbia materialmente avuto accesso alla casella.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container">
+        <div class="panel-card space-y-6">
+          <h2 class="text-2xl md:text-3xl font-semibold">Parliamone</h2>
+          <p class="text-white/70">Sono Cristian Federiconi, ingegnere informatico e Consulente Tecnico di Parte in informatica forense ad Ancona. Analizzo messaggi di posta elettronica, header e log dei server per stabilire origine, integrità e percorso delle comunicazioni.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="contatti.html" class="cta-button inline-flex items-center px-6 py-3 font-semibold rounded-full shadow-xl">Contattami</a>
+            <a href="certificazioni.html" class="text-white/80 underline decoration-white/50">Formazione e certificazioni</a>
+            <a href="domande-frequenti.html" class="text-white/80 underline decoration-white/50">Tutte le domande frequenti</a>
+          </div>
+          <p class="text-sm text-white/50 border-t border-white/10 pt-5">
+            Questa pagina ha finalità informative e descrive tecniche di verifica applicabili a messaggi di cui si ha legittima disponibilità. Non costituisce consulenza legale e non sostituisce il parere di un avvocato. L'accesso non autorizzato a caselle di posta altrui è vietato dalla legge.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+</body>
+</html>

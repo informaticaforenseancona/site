@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-369X9201DP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-369X9201DP');
+  </script>
+  <!-- End Google tag (gtag.js) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <title>Come capire se una foto è modificata o generata con l'AI</title>
+  <meta name="description" content="Nessuno strumento dà un verdetto secco. Si procede per indizi convergenti: metadati, tracce di ricompressione, coerenza di luci e ombre.">
+  <link rel="canonical" href="https://informatica-forense-ancona.it/come-capire-se-una-foto-e-modificata-o-ai.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Come capire se una foto è modificata o generata con l'AI">
+  <meta property="og:description" content="Metadati, ricompressione, coerenza della scena e artefatti di generazione: cosa si guarda davvero per verificare una foto.">
+  <meta property="og:url" content="https://informatica-forense-ancona.it/come-capire-se-una-foto-e-modificata-o-ai.html">
+  <meta property="og:image" content="https://informatica-forense-ancona.it/assets/social-preview.png">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b1f2b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/scripts.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://informatica-forense-ancona.it/come-capire-se-una-foto-e-modificata-o-ai.html#article",
+      "headline": "Come capire se una foto è modificata o generata con l'AI",
+      "description": "Nessuno strumento dà un verdetto secco. Si procede per indizi convergenti: metadati, tracce di ricompressione, coerenza di luci e ombre.",
+      "inLanguage": "it-IT",
+      "url": "https://informatica-forense-ancona.it/come-capire-se-una-foto-e-modificata-o-ai.html",
+      "image": "https://informatica-forense-ancona.it/assets/social-preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://informatica-forense-ancona.it/#cristian-federiconi",
+        "name": "Cristian Federiconi",
+        "jobTitle": "Consulente Tecnico di Parte in informatica forense",
+        "sameAs": "https://www.linkedin.com/in/cristian-federiconi/",
+        "knowsAbout": [
+          "Informatica forense",
+          "Analisi di immagini",
+          "Rilevamento di manipolazioni",
+          "Contenuti generati da AI"
+        ]
+      },
+      "publisher": {
+        "@id": "https://informatica-forense-ancona.it/#business"
+      },
+      "mainEntityOfPage": "https://informatica-forense-ancona.it/come-capire-se-una-foto-e-modificata-o-ai.html",
+      "about": [
+        "Autenticità delle immagini",
+        "Deepfake",
+        "Analisi forense multimediale"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://informatica-forense-ancona.it/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Domande frequenti",
+          "item": "https://informatica-forense-ancona.it/domande-frequenti.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Come capire se una foto è modificata o generata con l'AI"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Esiste un programma che dice se una foto è generata con l'AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Esistono strumenti che stimano una probabilità, ma nessuno fornisce un verdetto affidabile preso da solo. Producono falsi positivi su foto autentiche molto elaborate e falsi negativi su immagini sintetiche di buona qualità. In ambito forense si usano come uno degli elementi dell'analisi, mai come risposta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Perché una foto ricevuta su WhatsApp è difficile da analizzare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le piattaforme di messaggistica e i social ricomprimono le immagini e rimuovono i metadati per ridurne il peso. Quello che ricevi è una versione degradata che ha perso proprio le informazioni su cui si basa buona parte della verifica: data di scatto, dispositivo, parametri e storia delle modifiche."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I metadati EXIF dimostrano che una foto è autentica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. I metadati sono facilmente modificabili e la loro assenza non significa nulla, dato che vengono rimossi di routine dalle piattaforme. Sono un indizio da leggere insieme agli altri: metadati coerenti rafforzano, metadati incoerenti sono un segnale, metadati assenti non dicono niente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Si può stabilire con certezza se un'immagine è falsa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In alcuni casi sì, quando le tracce della manipolazione sono nette e documentabili. In altri l'analisi arriva a un giudizio di compatibilità o di incompatibilità con l'ipotesi di autenticità, senza certezza assoluta. Una relazione tecnica seria dichiara sempre il grado di confidenza raggiunto e i limiti dell'accertamento."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+
+<body class="page-servizi" style="--hero-image: url('imgs/certificazioni/hero-books.webp');">
+  <div data-include="header"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content space-y-8">
+        <nav aria-label="Percorso" class="text-sm text-white/60">
+          <a href="index.html" class="hover:text-white">Home</a>
+          <span class="mx-2">/</span>
+          <a href="domande-frequenti.html" class="hover:text-white">Domande frequenti</a>
+        </nav>
+        <div class="pill">
+          <span class="text-xs">Contenuti multimediali</span>
+          <span class="text-white text-[0.9rem] font-semibold">Autenticità</span>
+        </div>
+        <div class="space-y-6">
+          <h1 class="text-4xl md:text-6xl font-black leading-tight max-w-4xl">
+            Come capire se una foto è modificata o generata con l'AI
+          </h1>
+          <p class="text-lg md:text-xl text-white/80 max-w-3xl">
+            Nessun software serio risponde «vero» o «falso». L'analisi procede per accumulo di indizi convergenti — e il primo ostacolo è quasi sempre il modo in cui il file ti è arrivato.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container space-y-8">
+        <div class="panel-card space-y-4 border border-yellow-400/60 bg-yellow-500/5">
+          <p class="text-xs uppercase tracking-[0.4em] text-yellow-300">Risposta breve</p>
+          <p class="text-white/90 text-lg">Non esiste uno strumento che dia un verdetto secco. L'analisi funziona <strong>per accumulo di indizi tecnici convergenti</strong>: metadati del file, tracce lasciate dalle ricompressioni, coerenza di luci, ombre e prospettiva, artefatti tipici dei sistemi di generazione.</p>
+          <p class="text-white/70">Il primo problema, però, è pratico: <strong>se la foto ti è arrivata via WhatsApp o l'hai salvata da un social, buona parte delle informazioni utili è già stata distrutta</strong>. Queste piattaforme ricomprimono le immagini e rimuovono i metadati per progettazione.</p>
+          <p class="text-white/70">Per questo la domanda iniziale di ogni analisi non è «questa foto è vera?» ma <strong>«esiste il file originale, e dove si trova?»</strong>. Con l'originale si può lavorare seriamente. Con uno screenshot di uno screenshot, molto meno.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white/5">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Perché l'occhio non basta più</h2>
+        <div class="panel-card space-y-4">
+          <p class="text-xl font-semibold">Il problema non è solo la qualità delle immagini sintetiche</p>
+          <p class="text-white/70">Fino a qualche anno fa i difetti erano evidenti: mani con troppe dita, testo illeggibile, riflessi impossibili. Oggi quei difetti sono in larga parte spariti, e la valutazione a occhio produce risultati poco migliori del caso.</p>
+          <p class="text-white/70">C'è però un effetto secondario più insidioso, che nella pratica processuale conta anche di più. Da quando tutti sanno che le immagini si possono generare, <strong>è diventato facile contestare anche le fotografie autentiche</strong>. Basta affermare che una foto è stata creata artificialmente per costringere l'altra parte a dimostrare il contrario.</p>
+          <p class="text-white/70">L'analisi forense serve in entrambe le direzioni: documentare una manipolazione, ma anche sostenere l'autenticità di un'immagine genuina che viene messa in discussione. Il secondo caso è oggi altrettanto frequente del primo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Cosa si guarda in un'analisi</h2>
+        <p class="text-white/70 max-w-3xl">Nessuno di questi elementi è risolutivo da solo. È la loro convergenza — o la loro contraddizione — a costruire un risultato difendibile.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Metadati e struttura del file</h3>
+            <p class="text-white/70">Data di scatto, modello di fotocamera o telefono, parametri di esposizione, software che ha toccato il file per ultimo, struttura interna del contenitore.</p>
+            <p class="text-white/70">Un'immagine che dichiara di provenire da un certo modello di telefono ma ha una struttura interna incompatibile con quel modello è un segnale forte.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Tracce di ricompressione</h3>
+            <p class="text-white/70">Ogni salvataggio in formato compresso lascia un'impronta. Un'area dell'immagine che mostra una storia di compressione diversa dal resto indica che è stata inserita o modificata in un secondo momento.</p>
+            <p class="text-white/70">È una delle verifiche più solide quando si dispone di un file non passato per piattaforme che ricomprimono.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Coerenza di luci e ombre</h3>
+            <p class="text-white/70">Direzione delle ombre, posizione delle fonti luminose, riflessi negli occhi e sulle superfici lucide. Un elemento aggiunto raramente rispetta perfettamente l'illuminazione della scena originale.</p>
+            <p class="text-white/70">È un'analisi che si basa su principi fisici e per questo risulta particolarmente comprensibile quando va spiegata in aula.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Provenienza e contesto</h3>
+            <p class="text-white/70">Dove è comparsa per la prima volta quell'immagine, se ne esistono versioni precedenti o a risoluzione maggiore, se sono presenti marcature di provenienza dei contenuti.</p>
+            <p class="text-white/70">Spesso la ricerca sulla circolazione dell'immagine dà risultati più rapidi e più solidi di qualunque analisi del singolo file.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white/5">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">I limiti, detti chiaramente</h2>
+        <p class="text-white/70 max-w-3xl">Un consulente che promette una risposta certa su qualunque immagine sta promettendo qualcosa che la tecnica non consente. Questi sono i confini reali.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Il file degradato limita tutto</h3>
+            <p class="text-white/70">Su un'immagine ricompressa più volte e priva di metadati molte verifiche non sono applicabili. Il risultato non è un errore: è un accertamento che non può spingersi oltre.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Assenza di prova non è prova di assenza</h3>
+            <p class="text-white/70">Non trovare tracce di manipolazione non dimostra che l'immagine sia autentica. Significa che, con i dati disponibili, non emergono elementi di alterazione.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Gli strumenti automatici sbagliano</h3>
+            <p class="text-white/70">I rilevatori automatici producono sia falsi positivi sia falsi negativi. Usare il loro output come conclusione, senza verifica, è il modo più rapido per farsi smontare la relazione.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">La tecnologia si muove in fretta</h3>
+            <p class="text-white/70">Ciò che oggi è un indizio affidabile può non esserlo fra sei mesi. Per questo un accertamento serio dichiara la data, gli strumenti usati e il perimetro della valutazione.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">La manipolazione può essere legittima</h3>
+            <p class="text-white/70">Un ritocco non è necessariamente un falso. Ritaglio, correzione dei colori e riduzione del rumore sono operazioni ordinarie: ciò che conta è se l'intervento altera il contenuto rilevante.</p>
+          </article>
+          <article class="services-card space-y-3">
+            <h3 class="text-lg font-semibold">Il contesto conta più del pixel</h3>
+            <p class="text-white/70">Spesso la questione decisiva non è come è fatta l'immagine, ma da dove arriva e chi l'ha prodotta. È il motivo per cui l'analisi del file si accompagna quasi sempre alla ricerca sulla provenienza.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Video e deepfake: cosa cambia</h2>
+        <div class="panel-card space-y-4">
+          <p class="text-xl font-semibold">Più dati da analizzare, e più punti in cui qualcosa non torna</p>
+          <p class="text-white/70">Un video è una sequenza di immagini più una traccia audio, e questo è un vantaggio per chi analizza: le incoerenze devono restare coerenti nel tempo, il che è molto più difficile da ottenere.</p>
+          <p class="text-white/70">Si verificano la continuità fra fotogrammi consecutivi, la stabilità dei bordi nelle zone sostituite, il sincronismo fra labiale e audio, la coerenza dell'illuminazione durante i movimenti e la struttura del file rispetto a quella prodotta dal dispositivo dichiarato.</p>
+          <p class="text-white/70">La traccia audio va analizzata a parte, con verifiche proprie sull'autenticità: continuità del rumore di fondo, tracce di montaggio, indizi di sintesi vocale. Approfondisco questo aspetto nella pagina su <a href="registrazione-audio-di-nascosto-valore-legale.html" class="text-yellow-300 underline decoration-yellow-300/40">valore e verifica delle registrazioni audio</a>.</p>
+          <p class="text-white/70">Vale anche qui la regola d'oro: <strong>più il video è passato di mano in mano attraverso chat e social, meno resta da analizzare</strong>. Il primo obiettivo è sempre risalire alla versione originale e al dispositivo che l'ha prodotta.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white/5">
+      <div class="container space-y-8">
+        <div class="panel-card space-y-5 border border-red-400/40 bg-red-500/5">
+          <p class="text-xs uppercase tracking-[0.4em] text-red-300">Da evitare</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Se un'immagine dovrà essere analizzata</h2>
+          <p class="text-white/70">Vale un principio unico: <strong>ogni passaggio in più allontana il file dall'originale</strong>, e quella distanza non si recupera.</p>
+          <ul class="list-disc list-inside space-y-3 text-white/70">
+            <li><strong>Conserva il file originale</strong> e il messaggio con cui l'hai ricevuto: il contesto di trasmissione conta spesso quanto l'immagine.</li>
+            <li><strong>Non farne uno screenshot</strong> e non modificarla — nemmeno un ritaglio o un miglioramento della nitidezza.</li>
+            <li><strong>Evita di farla girare</strong> via chat per chiedere pareri: le app ricomprimono le immagini, e nel frattempo la notizia arriva anche a chi non dovrebbe averla.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container">
+        <div class="panel-card space-y-6">
+          <h2 class="text-2xl md:text-3xl font-semibold">Hai un'immagine o un video da verificare?</h2>
+          <p class="text-white/70">Che tu debba contestare un contenuto o difendere l'autenticità del tuo, il lavoro tecnico è lo stesso. Nella valutazione preliminare vediamo che file hai, da dove proviene e se l'analisi può dare un risultato utile: se il materiale è troppo degradato te lo dico subito.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="contatti.html" class="cta-button inline-flex items-center px-6 py-3 font-semibold rounded-full shadow-xl">Richiedi una valutazione preliminare</a>
+            <a href="analisi-foto-video-alterati.html" class="text-white/80 underline decoration-white/50">Come funziona l'analisi di foto e video</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white/5">
+      <div class="container space-y-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Domande correlate</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Mi hanno chiesto un riscatto minacciando di diffondere mie foto</h3>
+            <p class="text-white/70">È una situazione diversa e va gestita con urgenza. Ne parlo nella pagina dedicata a <a href="ricatto-online-foto-intime-cosa-fare.html" class="text-yellow-300 underline decoration-yellow-300/40">cosa fare in caso di ricatto online</a>.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Hanno creato immagini false che mi ritraggono</h3>
+            <p class="text-white/70">L'analisi tecnica serve a documentare che il contenuto è artificiale, ma il passo altrettanto importante è identificare l'origine della diffusione. In questi casi l'accertamento sul file si accompagna a una ricerca sulle fonti aperte.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">La controparte sostiene che la mia foto è falsa</h3>
+            <p class="text-white/70">È il caso speculare, ed è sempre più frequente. Come consulente di parte posso documentare l'autenticità del file, purché sia disponibile l'originale e possibilmente il dispositivo che l'ha prodotto.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Serve il telefono che ha scattato la foto?</h3>
+            <p class="text-white/70">Non è indispensabile, ma cambia molto. Poter confrontare l'immagine con altre foto prodotte dallo stesso apparecchio e con lo stato del dispositivo rende il risultato notevolmente più solido.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Quanto costa l'analisi di un'immagine?</h3>
+            <p class="text-white/70">L'analisi di foto e video parte da 800 euro e varia con la quantità di materiale e la profondità richiesta. Le fasce sono nella <a href="prezzi.html" class="text-yellow-300 underline decoration-yellow-300/40">pagina dei prezzi</a>; la valutazione iniziale è gratuita.</p>
+          </article>
+          <article class="panel-card space-y-3">
+            <h3 class="text-lg font-semibold">Il risultato regge in tribunale?</h3>
+            <p class="text-white/70">Regge se l'accertamento è documentato e ripetibile, se dichiara i propri limiti e se non presenta come certezza ciò che è una valutazione di probabilità. Le relazioni che promettono troppo sono anche le più facili da smontare.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container">
+        <div class="panel-card space-y-6">
+          <h2 class="text-2xl md:text-3xl font-semibold">Parliamone</h2>
+          <p class="text-white/70">Sono Cristian Federiconi, ingegnere informatico e Consulente Tecnico di Parte in informatica forense ad Ancona. Verifico l'autenticità di immagini, video e file audio e ne documento le eventuali alterazioni, dichiarando sempre il grado di confidenza raggiunto.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="contatti.html" class="cta-button inline-flex items-center px-6 py-3 font-semibold rounded-full shadow-xl">Contattami</a>
+            <a href="certificazioni.html" class="text-white/80 underline decoration-white/50">Formazione e certificazioni</a>
+            <a href="domande-frequenti.html" class="text-white/80 underline decoration-white/50">Tutte le domande frequenti</a>
+          </div>
+          <p class="text-sm text-white/50 border-t border-white/10 pt-5">
+            Questa pagina ha finalità informative e descrive metodi di analisi tecnica dell'autenticità dei contenuti multimediali. Non costituisce consulenza legale e non sostituisce il parere di un avvocato. Le tecniche descritte evolvono rapidamente e l'esito di ogni accertamento dipende dalla qualità e dalla provenienza del materiale disponibile.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+</body>
+</html>
