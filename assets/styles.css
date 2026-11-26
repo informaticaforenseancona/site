@@ -210,6 +210,84 @@ nav.desktop-nav a:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
+#modulo {
+  scroll-margin-top: 6rem;
+}
+
+.contact-form {
+  color-scheme: dark;
+}
+
+.contact-form .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-form .form-field > span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font: inherit;
+}
+
+.contact-form textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+/* Le voci del menu a tendina vengono disegnate dal sistema: colori espliciti per leggerle */
+.contact-form select option {
+  background-color: var(--primary);
+  color: white;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.contact-form button[disabled] {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.form-status {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.form-status[data-state="success"] {
+  color: #86efac;
+}
+
+.form-status[data-state="error"] {
+  color: #fca5a5;
+}
+
+.form-status a {
+  text-decoration: underline;
+}
+
+/* Il widget hCaptcha è largo 303px: su mobile serve meno padding perché ci stia */
+@media (max-width: 640px) {
+  #modulo .panel-card {
+    padding: 1.25rem;
+  }
+}
+
 .page-404 {
   background:
     radial-gradient(circle at top, rgba(240, 198, 58, 0.15), transparent 35%),
